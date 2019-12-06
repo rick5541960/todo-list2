@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import Todos from './components/Todos';
 import './App.css';
 import AddTodo from './components/AddTodo';
-// import ls from 'local-storage';
-//import { db } from './base';
+// import { db } from './base';
 import firebase, { db } from '../../contexts/Firebase'
 
 
@@ -13,23 +12,6 @@ class App extends Component {
     //this.addd=this.addd.bind(this);
     //this.delete=this.delete.bind(this);
     this.state = {
-      // todos: [
-      //   {
-      //     id: 1,
-      //     title: 'Take out the BINS',
-      //     completed: false
-      //   },
-      //   {
-      //     id: 2,
-      //     title: 'Dinner with Wife',
-      //     completed: true
-      //   },
-      //   {
-      //     id: 3,
-      //     title: 'Meeting with BOSS',
-      //     completed: false
-      //   }
-      // ]
       todos: []
       
     }
@@ -44,20 +26,19 @@ class App extends Component {
   // fire base method
   
   addd = (titl,dat)=>{
-    // Add a new document in collection "cities"
     db.collection("todoCollection").add({
-      //id: "Los Angeles",
+
       id: this.badidgen(),
       title: titl,
       date: dat,
       completed: false
     })
-    .then(function() {
-      console.log("Document successfully written!");
-    })
-    .catch(function(error) {
-      console.error("Error writing document: ", error);
-    });
+    // .then(function() {
+    //   console.log("Document successfully written!");
+    // })
+    // .catch(function(error) {
+    //   console.error("Error writing document: ", error);
+    // });
   }
   
 
